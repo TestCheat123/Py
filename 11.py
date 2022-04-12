@@ -1,14 +1,39 @@
-def print_operation_table(operation, table_rows=9, table_column=9):
-    for i in range(1, table_column + 1):
-        for j in range(1, table_rows + 1):
-            if i == 1:
-                print(j, end="\t")
-            else:
-                if j == 1:
-                    print(i, end="\t")
-                else:
-                    print(operation(i, j), end="\t")
-        print()
+class Summator:
+
+    def transform(self, n):
+        return n
+
+    def sum(self, N):
+        return sum(self.transform(i) for i in range(1, N + 1))
 
 
-print_operation_table(lambda x, y: x + y, 5, 5)
+class PowerSummator(Summator):
+
+    def __init__(self, b):
+        self.b = b
+
+    def transform(self, n):
+        return n ** self.b
+
+
+class SquareSummator(PowerSummator):
+
+    def __init__(self):
+        super().__init__(2)
+
+
+class CubeSummator(PowerSummator):
+
+    def __init__(self):
+        super().__init__(3)
+
+
+S1 = Summator()
+S2 = SquareSummator()
+S3 = CubeSummator()
+SP = PowerSummator(2)
+
+print(S1.sum(3))
+print(S2.sum(3))
+print(S3.sum(3))
+print(SP.sum(3))

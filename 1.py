@@ -1,7 +1,21 @@
-a = [i for i in range(1, 10)]
+class BigBell:
 
-res = filter(lambda x: x < 5, a)
-res_2 = [i for i in a if i < 5]
+    def __init__(self):
+        self.switch = True
 
-print(list(res))
+    def sound(self):
+        if self.switch:
+            self.switch = False
+            return print('ding')
+        else:
+            self.switch = True
+            return print('dong')
 
+
+bell = BigBell()
+bell.sound()
+bell.sound()
+bell.sound()
+bell.sound()
+bell.sound()
+bell.sound()

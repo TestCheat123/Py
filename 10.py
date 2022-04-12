@@ -1,13 +1,28 @@
-def same_by(characteristics, objects):
-    for i in objects:
-        if characteristics(i):
-            return False
+class Summator:
 
-    return True
+    def transform(self, n):
+        return n
+
+    def sum(self, N):
+        return sum(self.transform(i) for i in range(1, N + 1))
 
 
-values = [0, 2, 10, 6]
-if same_by(lambda x: x % 2, values):
-    print('same')
-else:
-    print('different')
+class SquareSummator(Summator):
+
+    def transform(self, n):
+        return n ** 2
+
+
+class CubeSummator(Summator):
+
+    def transform(self, n):
+        return n ** 3
+
+
+S1 = Summator()
+S2 = SquareSummator()
+S3 = CubeSummator()
+
+print(S1.sum(3))
+print(S2.sum(3))
+print(S3.sum(3))

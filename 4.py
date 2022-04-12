@@ -1,7 +1,30 @@
-a = a = [i for i in range(1, 30)]
+class Point:
 
-res = filter(lambda x: x > 17, a)
-res = map(lambda x: x / 2, res)
-res_2 = []
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-print(list(res))
+    def __eq__(self, other):
+        if self.x == other.x and self.y == other.y:
+            return True
+        else:
+            return False
+
+    def __ne__(self, other):
+        if self.x != other.x or self.y != other.y:
+            return True
+        else:
+            return False
+
+
+p1 = Point(1, 2)
+p2 = Point(1, 3)
+if p1 == p2:
+    print('Equal True')
+else:
+    print('Equal False')
+
+if p1 != p2:
+    print('Not equal True')
+else:
+    print('Not equal False')

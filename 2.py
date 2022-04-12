@@ -1,6 +1,25 @@
-a = [i for i in range(1, 10)]
-res = map(lambda x: x / 2, a)
-res_2 = [i / 2 for i in a]
-
-print(list(res))
-
+class Balance:
+    
+    def __init__(self):
+        self.balance = 0
+        
+    def add_right(self, weight=1):
+        self.balance += weight
+        
+    def add_left(self, weight=-1):
+        self.balance -= weight
+        
+    def result(self):
+        if self.balance == 0:
+            return print('=')
+        elif self.balance > 0:
+            return print('R')
+        else:
+            return print('L')
+        
+        
+balance = Balance()
+balance.add_right(10)
+balance.add_left(7)
+balance.add_right(4)
+balance.result()

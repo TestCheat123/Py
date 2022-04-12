@@ -1,7 +1,20 @@
-a = [i for i in range(10, 100)]
-
-res = filter((lambda x: x if x % 9 == 0 else None), a)
-res = map(lambda x: x * x, res)
-res = sum(res)
-
-print(res)
+class Selector():
+    
+    def __init__(self, values):
+        self.numbers = values
+        
+    def get_odds(self):
+        odds = filter(lambda x: x%2 != 0, self.numbers)
+        return odds
+    
+    def get_evens(self):
+        evens = filter(lambda x: x%2 == 0, self.numbers)
+        return evens
+        
+        
+values = [11, 12, 13, 14, 15, 16, 22, 44, 66]
+selector = Selector(values)
+odds = selector.get_odds()
+evens = selector.get_evens()
+print(' '.join(map(str, odds)))
+print(' '.join(map(str, evens)))
